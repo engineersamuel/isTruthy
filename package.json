@@ -1,6 +1,6 @@
 {
     "name": "isTruthy",
-    "version": "0.0.0",
+    "version": "0.0.1",
     "description": "Truthiness with options",
     "main": "dist/index.js",
     "types": "dist/index.d.ts",
@@ -12,7 +12,12 @@
         "type": "git",
         "url": "git+https://github.com/engineersamuel/isTruthy.git"
     },
-    "keywords": [],
+    "keywords": [
+        "truthy",
+        "truthiness",
+        "isTruthy",
+        "isFalsy"
+    ],
     "author": "Samuel Mendenhall <Samuel.Mendenhall@gmail.com>",
     "license": "MIT",
     "bugs": {
