@@ -1,0 +1,35 @@
+{
+    "name": "isTruthy",
+    "version": "0.0.0",
+    "description": "Truthiness with options",
+    "main": "dist/index.js",
+    "types": "dist/index.d.ts",
+    "scripts": {
+        "test": "mocha",
+        "build": "rimraf dist && tsc && rollup -c rollup.config.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/engineersamuel/isTruthy.git"
+    },
+    "keywords": [],
+    "author": "Samuel Mendenhall <Samuel.Mendenhall@gmail.com>",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/engineersamuel/isTruthy/issues"
+    },
+    "homepage": "https://github.com/engineersamuel/isTruthy#readme",
+    "devDependencies": {
+        "@open-wc/building-rollup": "^1.10.0",
+        "@rollup/plugin-typescript": "^8.2.5",
+        "@types/chai": "^4.2.21",
+        "@types/mocha": "^9.0.0",
+        "chai": "^4.3.4",
+        "mocha": "^9.0.3",
+        "rimraf": "^3.0.2",
+        "rollup": "^2.56.0",
+        "rollup-plugin-terser": "^7.0.2",
+        "ts-node": "^10.2.0",
+        "typescript": "^4.3.5"
+    }
+}
