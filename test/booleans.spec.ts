@@ -1,40 +1,28 @@
 import { expect } from 'chai';
 import { isTruthy, isFalsy, IsTruthyOptions } from '../src';
 
-describe('objects', () => {
-  describe('truthy objects', () => {
+describe('booleans', () => {
+  describe('truthy boolean', () => {
     type TestArg = {
       val: any;
       expectedResult: boolean;
     };
     const testArgs: TestArg[] = [
       {
-        val: {},
+        val: true,
         expectedResult: true
-      },
-      {
-        val: { a: 0 },
-        expectedResult: true
-      },
-      {
-        val: { b: 'a' },
-        expectedResult: true
-      },
-      {
-        val: { c: {} },
-        expectedResult: true
-      },
+      }
     ];
 
     testArgs.forEach((testArg) => {
-      it(`truthy object, args: ${JSON.stringify(testArg)}`, () => {
+      it(`truthy boolean, args: ${JSON.stringify(testArg)}`, () => {
         expect(isTruthy(testArg.val)).to.eq(testArg.expectedResult);
         expect(isFalsy(testArg.val)).to.eq(!testArg.expectedResult);
       });
     });
   });
 
-  describe('falsy object', () => {
+  describe('falsy boolean', () => {
     type TestArg = {
       val: any;
       expectedResult: boolean;
@@ -42,16 +30,13 @@ describe('objects', () => {
     };
     const testArgs: TestArg[] = [
       {
-        val: {},
-        expectedResult: false,
-        options: {
-          isEmptyObjectFalse: true
-        }
+        val: false,
+        expectedResult: false
       },
     ];
 
     testArgs.forEach((testArg) => {
-      it(`falsy object, args: ${JSON.stringify(testArg)}`, () => {
+      it(`falsy boolean, args: ${JSON.stringify(testArg)}`, () => {
         expect(isTruthy(testArg.val, testArg.options)).to.eq(testArg.expectedResult);
         expect(isFalsy(testArg.val, testArg.options)).to.eq(!testArg.expectedResult);
       });

@@ -28,6 +28,20 @@ describe('arrays', () => {
           isFalsyArrayFalse: true
         }
       },
+      {
+        val: [0],
+        expectedResult: true,
+        options: {
+          isFalsyArrayFalse: true
+        }
+      },
+      {
+        val: [''],
+        expectedResult: true,
+        options: {
+          isFalsyArrayFalse: true
+        }
+      },
     ];
 
     testArgs.forEach((testArg) => {
@@ -56,7 +70,24 @@ describe('arrays', () => {
         val: [0],
         expectedResult: false,
         options: {
-          isFalsyArrayFalse: true
+          isFalsyArrayFalse: true,
+          isZeroFalse: true
+        }
+      },
+      {
+        val: [null],
+        expectedResult: false,
+        options: {
+          isFilteredArrayFalse: true
+        }
+      },
+      {
+        val: [0, ''],
+        expectedResult: false,
+        options: {
+          isFalsyArrayFalse: true,
+          isEmptyStringFalse: true,
+          isZeroFalse: true
         }
       },
     ];
@@ -67,6 +98,5 @@ describe('arrays', () => {
         expect(isFalsy(testArg.val, testArg.options)).to.eq(!testArg.expectedResult);
       });
     });
-
   });
 });

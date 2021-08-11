@@ -29,6 +29,5 @@ describe('misc', () => {
         expect(isFalsy(testArg.val, testArg.options)).to.eq(!testArg.expectedResult);
       });
     });
-
   });
 });

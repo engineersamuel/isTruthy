@@ -1,12 +1,14 @@
 {
-    "name": "isTruthy",
-    "version": "0.0.1",
+    "name": "@engineersamuel/istruthy",
+    "version": "0.0.2",
     "description": "Truthiness with options",
     "main": "dist/index.js",
     "types": "dist/index.d.ts",
     "scripts": {
-        "test": "mocha",
-        "build": "rimraf dist && tsc && rollup -c rollup.config.js"
+        "test": "env TS_NODE_COMPILER_OPTIONS='{\"module\": \"commonjs\" }' nyc mocha",
+        "build": "rimraf dist && tsc && rollup -c rollup.config.js",
+        "lint": "eslint \"**/*.{ts,tsx}\"",
+        "lint-fix": "eslint \"**/*.{ts,tsx}\" --fix"
     },
     "repository": {
         "type": "git",
@@ -29,8 +31,14 @@
         "@rollup/plugin-typescript": "^8.2.5",
         "@types/chai": "^4.2.21",
         "@types/mocha": "^9.0.0",
+        "@typescript-eslint/eslint-plugin": "^4.29.1",
+        "@typescript-eslint/parser": "^4.29.1",
         "chai": "^4.3.4",
+        "eslint": "^7.32.0",
+        "eslint-config-airbnb-typescript": "^12.3.1",
+        "eslint-plugin-import": "^2.24.0",
         "mocha": "^9.0.3",
+        "nyc": "^15.1.0",
         "rimraf": "^3.0.2",
         "rollup": "^2.56.0",
         "rollup-plugin-terser": "^7.0.2",

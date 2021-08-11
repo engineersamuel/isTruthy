@@ -147,6 +147,5 @@ describe('numbers', () => {
         expect(isFalsy(testArg.val, testArg.options)).to.eq(!testArg.expectedResult);
       });
     });
-
   });
 });
