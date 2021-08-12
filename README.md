@@ -22,7 +22,7 @@
   <br />
   <pre>npm i <a href="https://www.npmjs.com/package/@engineersamuel/istruthy">@engineersamuel/istruthy</a></pre>
   <br />
-  Zero dependency micro-library (1.1kb minified / 3.3kb unminified)
+  Zero dependency micro-library (1kb minified / 2.7kb unminified)
   <br />
 </div>
 
