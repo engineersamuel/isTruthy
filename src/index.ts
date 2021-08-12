@@ -1,33 +1,4 @@
-const isNumber = (val: any): val is number => {
-  if (val == null) {
-    return false;
-  }
-  // return typeof val === 'number' && isFinite(val);
-  return typeof val === 'number';
-};
-
-const isString = (val: any): val is string => {
-  if (val == null) {
-    return false;
-  }
-  return typeof val === 'string';
-};
-
-const isBoolean = (val: any): val is boolean => {
-  if (val == null) {
-    return false;
-  }
-  return typeof val === 'boolean';
-};
-
-const isObject = (val: any): val is object => {
-  if (val == null) {
-    return false;
-  }
-  return (typeof val === 'object');
-};
-
-export type IsTruthyOptions = {
+export type Options = {
   isZeroFalse?: boolean;
   isInfinityFalse?: boolean;
   isEmptyStringFalse?: boolean;
@@ -37,10 +8,13 @@ export type IsTruthyOptions = {
   isFalsyArrayFalse?: boolean;
 };
 
-export const isTruthy = (val: any, options?: IsTruthyOptions): boolean => {
-  // console.debug(`val: ${val}, typeof val: ${typeof val}, opts: ${JSON.stringify(options)}`);
+export const isTruthy = (val: any, options?: Options): boolean => {
+  // Handle non-strict null equality
+  if (val == null) {
+    return false;
+  }
 
-  if (isNumber(val)) {
+  if (typeof val === 'number') {
     if (options?.isZeroFalse && val === 0) {
       return false;
     // eslint-disable-next-line no-else-return
@@ -51,13 +25,13 @@ export const isTruthy = (val: any, options?: IsTruthyOptions): boolean => {
     }
   }
 
-  if (isString(val)) {
+  if (typeof val === 'string') {
     if (options?.isEmptyStringFalse) {
       return val.trim() !== '';
     }
   }
 
-  if (isBoolean(val)) {
+  if (typeof val === 'boolean') {
     return val;
   }
 
@@ -73,14 +47,15 @@ export const isTruthy = (val: any, options?: IsTruthyOptions): boolean => {
   }
 
   // Not important to check function here, it will fall through to val != null
-  if (isObject(val)) {
+  if (typeof val === 'object') {
     if (options?.isEmptyObjectFalse) {
       return Object.keys(val).length > 0;
     }
   }
 
-  // This non-strict check will cover null and undefined
-  return val != null;
+  // If not == null and no returns above, then we have a true value.  Technically this
+  // line should never be hit if we've covered the above appropriately.
+  return true;
 };
 
-export const isFalsy = (val: any, options?: IsTruthyOptions): boolean => !isTruthy(val, options);
+export const isFalsy = (val: any, options?: Options): boolean => !isTruthy(val, options);

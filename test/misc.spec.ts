@@ -1,12 +1,12 @@
 import { expect } from 'chai';
-import { isTruthy, isFalsy, IsTruthyOptions } from '../src';
+import { isTruthy, isFalsy, Options } from '../src';
 
 describe('misc', () => {
   describe('falsy vals', () => {
     type TestArg = {
       val: any;
       expectedResult: boolean;
-      options?: IsTruthyOptions;
+      options?: Options;
     };
     const testArgs: TestArg[] = [
       {
