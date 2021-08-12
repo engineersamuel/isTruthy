@@ -6,14 +6,14 @@ export default {
   output: [
     {
       format: 'umd',
-      name: "isTruthy",
+      name: "Truthiness",
       dir: 'dist',
       exports: 'named',
     },
     {
       file: 'dist/index.min.js',
       format: 'umd',
-      name: 'isTruthy',
+      name: 'Truthiness',
       plugins: [terser()]
     }
   ],
