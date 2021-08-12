@@ -88,7 +88,7 @@ If you want to reference this library directly in html:
 </html>
 ```
 
-Note that the UMD is build with [rollup.js](https://rollupjs.org/) (Which is minimally necessary considering there are no dependencies) and the global variable name is `Truthiness` hence in the above browser environment you would access `isTruthy` via `Truthiness.isTruthy`.
+Note that the UMD is built with [rollup.js](https://rollupjs.org/) (Which is minimally necessary considering there are no dependencies) and the global variable name is `Truthiness` hence in the above browser environment you would access `isTruthy` via `Truthiness.isTruthy`.
 
 ## Config
 
