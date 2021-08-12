@@ -42,7 +42,7 @@
 
 Most truthiness libraries are either extremely basic or simply adhere to the standard defnition of [Truthy](https://developer.mozilla.org/en-US/docs/Glossary/Truthy) in JavaScript.
 
-However, what happens when you want to consider `''`, `[]`, `{}`, `0`, or `[null]` false?  This is where `@engineersamuel/istruthy` comes in.
+However, what happens when you want to consider `' '`, `[]`, `{}`, `0`, or `[null]` false?  This is where `@engineersamuel/istruthy` comes in.
 
 ## Install
 
