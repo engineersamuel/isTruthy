@@ -127,10 +127,12 @@ All files |     100 |      100 |     100 |     100 |
 
 ## Publishing
 
-- Bump the [package.json](package.json) version
-- `npm publish --access public`
-- `git tag vx.y.z`
-- `git push origin --tags`
+Releases are automated with GitHub Actions and [semantic-release](https://semantic-release.org/).
+
+- Use Conventional Commits in commits that land on `master`; for squash merges, make the PR title a Conventional Commit. `fix:` creates a patch release, `feat:` creates a minor release, and `feat!:` or `BREAKING CHANGE:` creates a major release.
+- When changes land on `master`, the release workflow runs `npm ci`, `npm test`, `npm run lint`, and `npm run build`.
+- If semantic-release finds releasable changes, it updates the package version, commits `package.json` and `package-lock.json` back to `master`, publishes to npm, creates the Git tag, and creates the GitHub Release.
+- Add an `NPM_TOKEN` repository secret in GitHub Actions with permission to publish this package. Alternatively, configure npm trusted publishing for this package with this repository and the `.github/workflows/release.yml` workflow file.
 
 ## License
 
