@@ -8,7 +8,8 @@
         "test": "env TS_NODE_COMPILER_OPTIONS='{\"module\": \"commonjs\" }' nyc mocha",
         "build": "rimraf dist && tsc && rollup -c rollup.config.js",
         "lint": "eslint \"**/*.{ts,tsx}\"",
-        "lint-fix": "eslint \"**/*.{ts,tsx}\" --fix"
+        "lint-fix": "eslint \"**/*.{ts,tsx}\" --fix",
+        "release": "semantic-release"
     },
     "repository": {
         "type": "git",
@@ -29,6 +30,7 @@
     "devDependencies": {
         "@open-wc/building-rollup": "^1.10.0",
         "@rollup/plugin-typescript": "^8.2.5",
+        "@semantic-release/git": "^10.0.1",
         "@types/chai": "^4.2.21",
         "@types/mocha": "^9.0.0",
         "@typescript-eslint/eslint-plugin": "^4.29.1",
@@ -42,6 +44,7 @@
         "rimraf": "^3.0.2",
         "rollup": "^2.56.0",
         "rollup-plugin-terser": "^7.0.2",
+        "semantic-release": "^25.0.5",
         "ts-node": "^10.2.0",
         "typescript": "^4.3.5"
     }
