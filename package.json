@@ -4,6 +4,11 @@
     "description": "Truthiness with options",
     "main": "dist/index.js",
     "types": "dist/index.d.ts",
+    "files": [
+        "dist",
+        "README.md",
+        "LICENSE"
+    ],
     "scripts": {
         "test": "vitest run --coverage",
         "test:watch": "vitest",
@@ -12,6 +17,7 @@
         "lint-fix": "eslint . --fix",
         "typecheck": "tsc --noEmit",
         "check": "npm run typecheck && npm run lint && npm test && npm run build",
+        "prepack": "npm run build",
         "release": "semantic-release"
     },
     "repository": {
