@@ -1,5 +1,5 @@
-import { expect } from 'chai';
-import { isTruthy, isFalsy, Options } from '../src';
+import { describe, expect, it } from 'vitest';
+import { isFalsy, isTruthy, type Options } from '../src';
 
 describe('misc', () => {
   describe('falsy vals', () => {
@@ -25,8 +25,8 @@ describe('misc', () => {
 
     testArgs.forEach((testArg) => {
       it(`falsy vals, args: ${JSON.stringify(testArg)}`, () => {
-        expect(isTruthy(testArg.val, testArg.options)).to.eq(testArg.expectedResult);
-        expect(isFalsy(testArg.val, testArg.options)).to.eq(!testArg.expectedResult);
+        expect(isTruthy(testArg.val, testArg.options)).toBe(testArg.expectedResult);
+        expect(isFalsy(testArg.val, testArg.options)).toBe(!testArg.expectedResult);
       });
     });
   });

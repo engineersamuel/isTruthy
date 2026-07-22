@@ -1,5 +1,5 @@
-import { expect } from 'chai';
-import { isTruthy, isFalsy, Options } from '../src';
+import { describe, expect, it } from 'vitest';
+import { isFalsy, isTruthy, type Options } from '../src';
 
 describe('arrays', () => {
   describe('truthy arrays', () => {
@@ -46,8 +46,8 @@ describe('arrays', () => {
 
     testArgs.forEach((testArg) => {
       it(`isTruthy array, args: ${JSON.stringify(testArg)}`, () => {
-        expect(isTruthy(testArg.val, testArg.options)).to.eq(testArg.expectedResult);
-        expect(isFalsy(testArg.val, testArg.options)).to.eq(!testArg.expectedResult);
+        expect(isTruthy(testArg.val, testArg.options)).toBe(testArg.expectedResult);
+        expect(isFalsy(testArg.val, testArg.options)).toBe(!testArg.expectedResult);
       });
     });
   });
@@ -94,8 +94,8 @@ describe('arrays', () => {
 
     testArgs.forEach((testArg) => {
       it(`falsy array, args: ${JSON.stringify(testArg)}`, () => {
-        expect(isTruthy(testArg.val, testArg.options)).to.eq(testArg.expectedResult);
-        expect(isFalsy(testArg.val, testArg.options)).to.eq(!testArg.expectedResult);
+        expect(isTruthy(testArg.val, testArg.options)).toBe(testArg.expectedResult);
+        expect(isFalsy(testArg.val, testArg.options)).toBe(!testArg.expectedResult);
       });
     });
   });

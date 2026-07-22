@@ -1,5 +1,5 @@
-import { expect } from 'chai';
-import { isTruthy, isFalsy, Options } from '../src';
+import { describe, expect, it } from 'vitest';
+import { isFalsy, isTruthy, type Options } from '../src';
 
 describe('booleans', () => {
   describe('truthy boolean', () => {
@@ -16,8 +16,8 @@ describe('booleans', () => {
 
     testArgs.forEach((testArg) => {
       it(`truthy boolean, args: ${JSON.stringify(testArg)}`, () => {
-        expect(isTruthy(testArg.val)).to.eq(testArg.expectedResult);
-        expect(isFalsy(testArg.val)).to.eq(!testArg.expectedResult);
+        expect(isTruthy(testArg.val)).toBe(testArg.expectedResult);
+        expect(isFalsy(testArg.val)).toBe(!testArg.expectedResult);
       });
     });
   });
@@ -37,8 +37,8 @@ describe('booleans', () => {
 
     testArgs.forEach((testArg) => {
       it(`falsy boolean, args: ${JSON.stringify(testArg)}`, () => {
-        expect(isTruthy(testArg.val, testArg.options)).to.eq(testArg.expectedResult);
-        expect(isFalsy(testArg.val, testArg.options)).to.eq(!testArg.expectedResult);
+        expect(isTruthy(testArg.val, testArg.options)).toBe(testArg.expectedResult);
+        expect(isFalsy(testArg.val, testArg.options)).toBe(!testArg.expectedResult);
       });
     });
   });
