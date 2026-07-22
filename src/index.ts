@@ -35,13 +35,19 @@ export const isTruthy = (val: any, options?: Options): boolean => {
   }
 
   if (Array.isArray(val)) {
-    if (options?.isEmptyArrayFalse) {
-      return val.length > 0;
-    } else if (options?.isFilteredArrayFalse) {
-      return val.filter((v) => v).length > 0;
-    } else if (options?.isFalsyArrayFalse) {
-      return val.filter((v) => isTruthy(v, options)).length > 0;
+    if (options?.isEmptyArrayFalse && val.length === 0) {
+      return false;
     }
+
+    if (options?.isFilteredArrayFalse && !val.some((item) => Boolean(item))) {
+      return false;
+    }
+
+    if (options?.isFalsyArrayFalse && !val.some((item) => isTruthy(item, options))) {
+      return false;
+    }
+
+    return true;
   }
 
   // Not important to check function here, it will fall through to val != null

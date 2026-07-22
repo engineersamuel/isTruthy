@@ -14,6 +14,13 @@ describe('arrays', () => {
         expectedResult: true
       },
       {
+        val: [],
+        expectedResult: true,
+        options: {
+          isEmptyObjectFalse: true
+        }
+      },
+      {
         val: [1, 2],
         expectedResult: true
       },
@@ -33,6 +40,16 @@ describe('arrays', () => {
         expectedResult: true,
         options: {
           isFalsyArrayFalse: true
+        }
+      },
+      {
+        val: [1],
+        expectedResult: true,
+        options: {
+          isEmptyArrayFalse: true,
+          isFilteredArrayFalse: true,
+          isFalsyArrayFalse: true,
+          isZeroFalse: true
         }
       },
       {
@@ -70,6 +87,30 @@ describe('arrays', () => {
         val: [0],
         expectedResult: false,
         options: {
+          isFilteredArrayFalse: true
+        }
+      },
+      {
+        val: [0],
+        expectedResult: false,
+        options: {
+          isEmptyArrayFalse: true,
+          isFilteredArrayFalse: true
+        }
+      },
+      {
+        val: [0],
+        expectedResult: false,
+        options: {
+          isFalsyArrayFalse: true,
+          isZeroFalse: true
+        }
+      },
+      {
+        val: [0],
+        expectedResult: false,
+        options: {
+          isEmptyArrayFalse: true,
           isFalsyArrayFalse: true,
           isZeroFalse: true
         }
@@ -79,6 +120,15 @@ describe('arrays', () => {
         expectedResult: false,
         options: {
           isFilteredArrayFalse: true
+        }
+      },
+      {
+        val: [' '],
+        expectedResult: false,
+        options: {
+          isFilteredArrayFalse: true,
+          isFalsyArrayFalse: true,
+          isEmptyStringFalse: true
         }
       },
       {
