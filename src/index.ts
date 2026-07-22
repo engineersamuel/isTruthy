@@ -17,7 +17,6 @@ export const isTruthy = (val: any, options?: Options): boolean => {
   if (typeof val === 'number') {
     if (options?.isZeroFalse && val === 0) {
       return false;
-    // eslint-disable-next-line no-else-return
     } else if (options?.isInfinityFalse && (val === Infinity || val === -Infinity)) {
       return false;
     } else if (Number.isNaN(val)) {
@@ -38,7 +37,6 @@ export const isTruthy = (val: any, options?: Options): boolean => {
   if (Array.isArray(val)) {
     if (options?.isEmptyArrayFalse) {
       return val.length > 0;
-    // eslint-disable-next-line no-else-return
     } else if (options?.isFilteredArrayFalse) {
       return val.filter((v) => v).length > 0;
     } else if (options?.isFalsyArrayFalse) {
@@ -49,7 +47,7 @@ export const isTruthy = (val: any, options?: Options): boolean => {
   // Not important to check function here, it will fall through to val != null
   if (typeof val === 'object') {
     if (options?.isEmptyObjectFalse) {
-      return Object.keys(val).length > 0;
+      return Object.keys(val as Record<string, unknown>).length > 0;
     }
   }
 

@@ -107,6 +107,7 @@ dist
 .tern-port
 
 .DS_Store
+.rollup-tmp/
 
 # Advisor implementation plans
 plans/
