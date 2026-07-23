@@ -143,7 +143,7 @@ Releases are automated with GitHub Actions and [semantic-release](https://semant
 - Pull requests run CI before merge with `npm ci` and `npm run check`.
 - When changes land on `master`, the release workflow runs `npm ci`, `npm test`, `npm run lint`, and `npm run build`.
 - If semantic-release finds releasable changes, it updates the package version, commits `package.json` and `package-lock.json` back to `master`, publishes to npm, creates the Git tag, and creates the GitHub Release.
-- Add an `NPM_TOKEN` repository secret in GitHub Actions with permission to publish this package. Alternatively, configure npm trusted publishing for this package with this repository and the `.github/workflows/release.yml` workflow file.
+- Configure npm trusted publishing for this package with this repository and the `.github/workflows/release.yml` workflow file. The workflow publishes through GitHub OIDC and does not require a long-lived npm token.
 
 ## License
 
